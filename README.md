@@ -101,7 +101,3 @@ Simply open `index.html` in any modern web browser to start playing!
 Created by Divya using Amazon Q Developer for the "That's Entertainment!" prompt in [this](https://dev.to/challenges/aws-amazon-q-v2025-04-30) challenge.
 
 Font: "Press Start 2P" by CodeMan38 (Google Fonts)
-
-## License
-
-This project is open-source and under MIT License.
