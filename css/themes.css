@@ -1,0 +1,436 @@
+/* RADICAL SUDOKU EXTREME - Theme System */
+
+/* Dark Space Theme */
+.theme-dark {
+    --primary-bg: #000033;
+    --secondary-bg: #000022;
+    --grid-bg: #000044;
+    --cell-bg: #000066;
+    --cell-selected: #330066;
+    --cell-highlight: #003366;
+    --cell-error: #660033;
+    --text-color: #ffffff;
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --neon-green: #00ff00;
+    --neon-yellow: #ffff00;
+}
+
+/* Light Sunny Theme */
+.theme-light {
+    --primary-bg: #87CEEB;
+    --secondary-bg: #B0E0E6;
+    --grid-bg: #4682B4;
+    --cell-bg: #ADD8E6;
+    --cell-selected: #FFA07A;
+    --cell-highlight: #87CEFA;
+    --cell-error: #FF6347;
+    --text-color: #000033;
+    --neon-pink: #FF1493;
+    --neon-blue: #1E90FF;
+    --neon-green: #32CD32;
+    --neon-yellow: #FFD700;
+}
+
+body.theme-dark {
+    background-color: #000;
+    color: var(--text-color);
+    background-image: 
+        radial-gradient(var(--neon-blue) 1px, transparent 1px),
+        radial-gradient(var(--neon-pink) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+body.theme-light {
+    background-color: #87CEEB;
+    color: var(--text-color);
+    background-image: 
+        linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+}
+
+/* Space Animation Elements */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 5s infinite ease-in-out;
+    background: #ffffff;
+    box-shadow: 0 0 4px #ffffff, 0 0 8px #ffffff;
+}
+
+/* Different colored stars */
+.star.silver {
+    background: #E8E8E8;
+    box-shadow: 0 0 4px #E8E8E8, 0 0 8px #E8E8E8;
+}
+
+.star.gold {
+    background: #FFD700;
+    box-shadow: 0 0 4px #FFD700, 0 0 8px #FFD700;
+}
+
+.star.light-blue {
+    background: #ADD8E6;
+    box-shadow: 0 0 4px #ADD8E6, 0 0 8px #ADD8E6;
+}
+
+/* Star shape for some stars */
+.star.star-shape {
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+    border-radius: 0;
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    animation: twinkle-rotate 5s infinite ease-in-out;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.star::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: 
+        radial-gradient(#ffffff 1%, transparent 10%),
+        radial-gradient(#ffffff 1%, transparent 10%);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    opacity: 0.3;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #FFD700; /* Golden color */
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 2;
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    animation: shoot 6s linear infinite;
+    transform: rotate(30deg); /* Tilted angle */
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to left, rgba(255,215,0,0.8), rgba(255,215,0,0)); /* Golden gradient */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Sunny Animation Elements */
+.sun {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #FFFF00, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 60px #FFD700, 0 0 100px #FFA500;
+    animation: pulse-sun 4s infinite alternate;
+    z-index: 10; /* Lower z-index so it doesn't interfere with UI */
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.sun::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    background: radial-gradient(circle, rgba(255,255,0,0.3), rgba(255,165,0,0) 70%);
+    border-radius: 50%;
+    animation: sun-rays 8s infinite linear;
+}
+
+.cloud {
+    position: fixed;
+    top: 120px; /* Position clouds below the sun */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    z-index: -10; /* Lower than sun, higher than background */
+    pointer-events: none;
+    animation: float-cloud linear infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Horizontal cloud parts instead of vertical */
+.cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60%;
+    height: 100%;
+    top: 0;
+    left: -30%;
+}
+
+.cloud::after {
+    width: 60%;
+    height: 100%;
+    top: 0;
+    right: -30%;
+}
+
+.leaf {
+    position: fixed;
+    top: 180px; /* Start leaves from below clouds */
+    width: 25px;
+    height: 25px;
+    z-index: -1;
+    pointer-events: none;
+    animation: falling-leaf 15s linear infinite;
+    opacity: 0.8;
+}
+
+.leaf-1 {
+    background-color: #32CD32;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
+}
+
+.leaf-2 {
+    background-color: #228B22;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(135deg);
+}
+
+.leaf-3 {
+    background-color: #3CB371;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(225deg);
+}
+
+.leaf-4 {
+    background-color: #6B8E23;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(315deg);
+}
+
+.leaf-5 {
+    background-color: #556B2F;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transform: rotate(45deg);
+}
+
+/* Animations */
+@keyframes twinkle {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.2);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.8);
+    }
+}
+
+@keyframes twinkle-rotate {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8) rotate(0deg);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5) rotate(180deg);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.8) rotate(360deg);
+    }
+}
+
+@keyframes shoot {
+    0% {
+        opacity: 0;
+        transform: translateX(0) translateY(0);
+    }
+    5% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.8;
+        transform: translateX(400px) translateY(400px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(600px) translateY(600px);
+    }
+}
+
+@keyframes pulse-sun {
+    0% { 
+        box-shadow: 0 0 60px #FFD700, 0 0 100px #FFA500; 
+        transform: scale(1);
+    }
+    100% { 
+        box-shadow: 0 0 80px #FFD700, 0 0 120px #FFA500; 
+        transform: scale(1.05);
+    }
+}
+
+@keyframes sun-rays {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float-cloud {
+    0% { transform: translateX(-150px); }
+    100% { transform: translateX(calc(100vw + 150px)); }
+}
+
+@keyframes falling-leaf {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(calc(100vh + 50px)) translateX(200px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Level Indicators */
+.level-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.level-star {
+    font-size: 1.2rem;
+    color: var(--neon-yellow);
+    margin: 0 2px;
+    text-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.level-star.empty {
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: none;
+}
+/* Enhanced Light Theme Background */
+body.theme-light {
+    background: linear-gradient(to bottom, #87CEEB, #B0E0E6);
+    position: relative;
+    overflow: hidden;
+}
+
+body.theme-light::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Grass at the bottom */
+body.theme-light::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #32CD32, rgba(50, 205, 50, 0));
+    z-index: -1;
+    pointer-events: none;
+}
+/* Enhanced Light Theme Background */
+body.theme-light {
+    background: linear-gradient(to bottom, #87CEEB, #B0E0E6);
+    position: relative;
+    overflow: hidden;
+}
+
+body.theme-light::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: -3;
+    pointer-events: none;
+}
+
+/* Adjust content padding to account for fixed footer */
+.game-container {
+    padding-bottom: 60px;
+}
+
+/* Make sure the game board is fully visible */
+.game-board-container {
+    margin-bottom: 30px;
+}
+/* Scrollbar styling for light mode */
+body.theme-light::-webkit-scrollbar {
+    width: 12px;
+}
+
+body.theme-light::-webkit-scrollbar-track {
+    background: rgba(176, 224, 230, 0.5);
+    border-radius: 10px;
+}
+
+body.theme-light::-webkit-scrollbar-thumb {
+    background: #4682B4;
+    border-radius: 10px;
+    border: 3px solid rgba(176, 224, 230, 0.5);
+}
+
+body.theme-light::-webkit-scrollbar-thumb:hover {
+    background: #1E90FF;
+}

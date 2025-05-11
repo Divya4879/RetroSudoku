@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RADICAL SUDOKU EXTREME</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+    <div class="game-container">
+        <div class="header">
+            <h1 class="title">RADICAL SUDOKU EXTREME</h1>
+            <div class="neon-subtitle">THE ULTIMATE BRAIN CHALLENGE</div>
+        </div>
+        
+        <div id="level-select-screen style='padding-right:-100px'" class="level-select-screen">
+            <h2 style="padding-top:10%; padding-left:15%">SELECT YOUR LEVEL</h2>
+            <div class="level-buttons">
+                <button class="level-btn" data-level="1">NOVICE NEBULA</button>
+                <button class="level-btn" data-level="2">PUZZLE PRODIGY</button>
+                <button class="level-btn" data-level="3">GRID GUARDIAN</button>
+                <button class="level-btn" data-level="4">NUMBER NINJA</button>
+                <button class="level-btn" data-level="5">LOGIC LUMINARY</button>
+                <button class="level-btn" data-level="6">SUDOKU SORCERER</button>
+                <button class="level-btn" data-level="7">DIGIT DYNAMO</button>
+                <button class="level-btn" data-level="8">MATRIX MASTER</button>
+                <button class="level-btn" data-level="9">COSMIC CALCULATOR</button>
+                <button class="level-btn" data-level="10">ULTIMATE UNIVERSE</button>
+            </div>
+        </div>
+        
+        <div id="game-screen" class="game-screen hidden">
+            <div class="game-controls">
+                <div class="timer-container">
+                    <div class="timer-label">TIME</div>
+                    <div id="timer">00:00</div>
+                </div>
+                <div class="level-display">
+                    <div class="level-label">LEVEL</div>
+                    <div id="current-level">1</div>
+                </div>
+                <div class="score-container">
+                    <div class="score-label">SCORE</div>
+                    <div id="score">0</div>
+                </div>
+            </div>
+            
+            <div class="mistakes-container">
+                <div class="mistake-label">MISTAKES</div>
+                <div class="mistake-icons">
+                    <span id="mistake-1" class="mistake-icon">❌</span>
+                    <span id="mistake-2" class="mistake-icon">❌</span>
+                    <span id="mistake-3" class="mistake-icon">❌</span>
+                    <span id="mistake-4" class="mistake-icon">❌</span>
+                </div>
+            </div>
+            
+            <div class="level-indicator">
+                <div class="level-star">★</div>
+                <div class="level-star">★</div>
+                <div class="level-star">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+                <div class="level-star empty">★</div>
+            </div>
+            
+            <div class="game-board-container">
+                <div id="game-board" class="game-board"></div>
+                <div class="number-pad">
+                    <div class="number-btn" data-number="1">1</div>
+                    <div class="number-btn" data-number="2">2</div>
+                    <div class="number-btn" data-number="3">3</div>
+                    <div class="number-btn" data-number="4">4</div>
+                    <div class="number-btn" data-number="5">5</div>
+                    <div class="number-btn" data-number="6">6</div>
+                    <div class="number-btn" data-number="7">7</div>
+                    <div class="number-btn" data-number="8">8</div>
+                    <div class="number-btn" data-number="9">9</div>
+                    <div class="number-btn erase-btn" data-number="0">X</div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="restart-btn" class="action-btn">RESTART</button>
+                <button id="hint-btn" class="action-btn">HINT</button>
+                <button id="solve-btn" class="action-btn">SOLVE</button>
+                <button id="exit-btn" class="action-btn">EXIT</button>
+            </div>
+        </div>
+        
+        <div id="message-box" class="message-box hidden">
+            <div class="message-content">
+                <h2 id="message-title">RADICAL!</h2>
+                <p id="message-text">You're doing great!</p>
+                <button id="message-close" class="action-btn">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="controls">
+            <button id="sound-toggle" class="icon-btn" title="Toggle Sound">🔊</button>
+            <button id="theme-toggle" class="icon-btn" title="Toggle Theme">🌙</button>
+            <button id="animation-toggle" class="icon-btn" title="Toggle Animations">✨</button>
+            <button id="pause-toggle" class="icon-btn" title="Pause Game" style="display: none;">⏸️</button>
+        </div>
+        <div class="credits">© 2025 RADICAL SUDOKU EXTREME</div>
+    </div>
+
+    <!-- Load scripts in the correct order -->
+    <script src="js/sound.js"></script>
+    <!-- Load scripts in the correct order -->
+    <script src="js/sound.js"></script>
+    <script src="js/sudoku-generator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
