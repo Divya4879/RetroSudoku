@@ -2,22 +2,26 @@
 
 A retro-style, 90s-inspired Sudoku game with neon aesthetics, synthesized sound effects, and radical gameplay!
 
+![Project ss- dark mode](https://github.com/user-attachments/assets/90bb6bfe-153e-43b3-8aa4-250e579b7c7f)
+![project ss- light mode](https://github.com/user-attachments/assets/91b3df2d-22d9-4e23-9642-ab1ddb4111b6)
+
+
 ## Live Preview
 
-You can check it out here at [RetroSudoku](https://retrosudoku.netlify.app)
+You can check it out here at [RetroSudoku](https://retrosudoku.netlify.app).
 
 ## Features
 
-- 🎮 Authentic 90s retro aesthetic with neon colors and pixelated fonts
-- 🎵 Procedurally generated sound effects using Web Audio API
-- 🎯 Ten progressive difficulty levels from "NOVICE NEBULA" to "ULTIMATE UNIVERSE"
-- ⏱️ Timer and scoring system with bonuses for consecutive correct moves
-- 💡 Hint system for when you get stuck
-- 🎮 Keyboard support for number entry and navigation
-- 📱 Responsive design that works on desktop and mobile
-- 🌙 Multiple themes with toggle functionality
-- 🔊 Customizable sound settings
-- ✨ Toggle animations for performance optimization
+- 🎮 Authentic 90s retro aesthetic with neon colors and pixelated fonts.
+- 🎵 Procedurally generated sound effects using Web Audio API.
+- 🎯 Ten progressive difficulty levels from "NOVICE NEBULA" to "ULTIMATE UNIVERSE".
+- ⏱️ Timer and scoring system with bonuses for consecutive correct moves.
+- 💡 Hint system for when you get stuck.
+- 🎮 Keyboard support for number entry and navigation.
+- 📱 Responsive design that works on desktop and mobile.
+- 🌙 Multiple themes with toggle functionality.
+- 🔊 Customizable sound settings.
+- ✨ Toggle animations for performance optimization.
 
 ## How to Play
 
@@ -62,21 +66,23 @@ You can check it out here at [RetroSudoku](https://retrosudoku.netlify.app)
 ## Project Structure
 
 
+```text
 retro-sudoku/
 ├── index.html              # Main game HTML
 ├── css/
-│   ├── style.css           # Main game styles
-│   └── themes.css          # Theme definitions (light/dark)
+│   ├── style.css           # Core styling rules
+│   └── themes.css          # Light/dark theme definitions
 ├── js/
-│   ├── game.js             # Core game logic
-│   ├── sudoku-generator.js # Puzzle generation algorithm
-│   ├── ui.js               # User interface management
-│   ├── sound.js            # Sound effects and music
-│   └── themes.js           # Theme switching functionality
+│   ├── game.js             # Core gameplay logic
+│   ├── sudoku-generator.js # Puzzle generator
+│   ├── ui.js               # UI updates & animations
+│   ├── sound.js            # Chiptune effects & music
+│   └── themes.js           # Theme toggle logic
 └── assets/
-   ├── fonts/              # Custom fonts
-   ├── images/             # Game graphics
-   └── sounds/             # Audio files
+    ├── fonts/              # “Press Start 2P” pixel fonts
+    ├── images/             # 90s-style graphics
+    └── sounds/             # Raw audio files
+```
 
 ## Running the Game
 
@@ -92,7 +98,7 @@ Simply open `index.html` in any modern web browser to start playing!
 
 ## Credits
 
-Created by Divya using Amazon Q Developer for the "That's Entertainment!" challenge.
+Created by Divya using Amazon Q Developer for the "That's Entertainment!" prompt in [this](https://dev.to/challenges/aws-amazon-q-v2025-04-30) challenge.
 
 Font: "Press Start 2P" by CodeMan38 (Google Fonts)
 
